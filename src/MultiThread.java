@@ -76,20 +76,27 @@ public class MultiThread {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        int[] numeroThreads = {2, 4, 8};
+        final int[] NUMERO_THREADS = {2, 4, 8};
         List<ThreadMatriz> threads;
         int tamanhoPorThread;
+        double tamanhoThreadDouble;
 
-        for(int core : numeroThreads){
-            // PREPARA PARA MEDIR TEMPO
-            long inicio = System.nanoTime();
-
-            int posFinalAnterior = 0;
-            threads = new ArrayList<ThreadMatriz>(core);
+        for(int core : NUMERO_THREADS){
             for(int vezes = 100; vezes <= SIZE; vezes += 100){
+                threads = new ArrayList<ThreadMatriz>(core);
+                int posFinalAnterior = 0;
                 criarMatrizes(vezes);
-                tamanhoPorThread = vezes/core;
+                tamanhoThreadDouble = vezes/(double)core;
+
+                // PREPARA PARA MEDIR TEMPO
+                long inicio = System.nanoTime();
+
                 for(int i = 0; i < core; i++){
+                    if (i % 2 == 0 && tamanhoThreadDouble % 1 != 0) {
+                        tamanhoPorThread = (int)tamanhoThreadDouble + 1;
+                    } else {
+                        tamanhoPorThread = (int)tamanhoThreadDouble;
+                    }
                     threads.add(new ThreadMatriz(posFinalAnterior, (tamanhoPorThread + posFinalAnterior)));
                     posFinalAnterior = (tamanhoPorThread + posFinalAnterior);
                     threads.get(i).start();
@@ -103,7 +110,7 @@ public class MultiThread {
                 double total = (fim - inicio) / 1000000000.0;
 
                 // MOSTRA O TEMPO DE EXECUCAO
-                System.out.printf(core + " - " + vezes + ": %f\n", total);
+                System.out.printf(core + " Cores - " + vezes + "X" + vezes +": %f\n", total);
             }
         }
 
