@@ -7,7 +7,7 @@
 public class Sequencial {
 
     // DIMENSOES DAS MATRIZES
-    public static final int SIZE = 2000;
+    public static final int SIZE = 500;
 
     // ESTRUTURAS DE DADOS COMPARTILHADA
     public static int[][] m1;
