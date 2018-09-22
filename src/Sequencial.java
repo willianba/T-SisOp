@@ -7,7 +7,7 @@
 public class Sequencial {
 
     // DIMENSOES DAS MATRIZES
-    public static final int SIZE = 500;
+    public static final int SIZE = 2000;
 
     // ESTRUTURAS DE DADOS COMPARTILHADA
     public static int[][] m1;
@@ -90,7 +90,7 @@ public class Sequencial {
             }
 
             // MOSTRA O TEMPO DE EXECUCAO
-            System.out.printf(vezes + ": %f\n", total);
+            System.out.printf("%dX%d: %f\n", vezes, vezes, total);
 
         }
     }

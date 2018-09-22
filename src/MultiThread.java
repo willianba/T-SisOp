@@ -110,7 +110,7 @@ public class MultiThread {
                 double total = (fim - inicio) / 1000000000.0;
 
                 // MOSTRA O TEMPO DE EXECUCAO
-                System.out.printf(core + " Cores - " + vezes + "X" + vezes +": %f\n", total);
+                System.out.printf("%d Threads - %dX%d: %f\n", core, vezes, vezes, total);
             }
         }
 
