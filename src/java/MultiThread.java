@@ -100,6 +100,9 @@ public class MultiThread {
                     threads.add(new ThreadMatriz(posFinalAnterior, (tamanhoPorThread + posFinalAnterior)));
                     posFinalAnterior = (tamanhoPorThread + posFinalAnterior);
                     threads.get(i).start();
+                }
+
+                for(int i = 0; i < core; i++){
                     threads.get(i).join();
                 }
 
