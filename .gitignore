@@ -1,7 +1,5 @@
 out/
 .idea/
 *.iml
-src/python/.ipynb_checkpoints/
-graficos/
-tempos_paralelo/
-tempos_sequencial/
+**/.ipynb_checkpoints/
+**/*.class
